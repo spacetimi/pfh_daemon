@@ -1,5 +1,5 @@
 # Run
-./run.sh &
+./pfh_run.sh &
 
 # Output
 data/raw.dat
