@@ -30,7 +30,7 @@ while True:
         foreground_app_details = "locked##"
 
     else:
-        foreground_app_details = get_system_command_output("osascript scripts/helpers/print_foreground_app_details.scpt")
+        foreground_app_details = get_system_command_output("osascript scripts/print_foreground_app_details.scpt")
 
     #print timestamp + "##" + foreground_app_details
     sys.stdout.write(timestamp + "##" + foreground_app_details + '\n')

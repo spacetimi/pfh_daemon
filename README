@@ -1,2 +1,8 @@
+# Run
+./run.sh
+
+# Output
+data/raw.dat
+
 # Required Installs
 pip install pyobjc-framework-Quartz
