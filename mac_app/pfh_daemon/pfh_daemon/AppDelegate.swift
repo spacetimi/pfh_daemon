@@ -41,12 +41,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func runCode() {
+        let sessionDict = CGSessionCopyCurrentDictionary() as? [NSString: Any]
+        let locked = sessionDict?["CGSSessionScreenIsLocked"] ?? false
+        if locked as! Bool {
+            print("locked")
+        } else {
+            print("unlocked")
+        }
+        
         getForegroundAppDetailsViaAppleScript()
     }
 
     func getForegroundAppDetailsViaAppleScript() {
-        print("running")
-
         let source = """
         tell application "System Events"
             set foreground_app to first application process whose frontmost is true
