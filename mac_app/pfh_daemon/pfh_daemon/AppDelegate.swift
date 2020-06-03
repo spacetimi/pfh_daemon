@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.menu = statusMenu
         
         self.dumpFileHelper = DumpFileHelper()
-        self.foregroundAppHelper = ForegroundAppHelper(dumpFileHelper: self.dumpFileHelper!, interval: 5)
+        self.foregroundAppHelper = ForegroundAppHelper(dumpFileHelper: self.dumpFileHelper!, interval: 15)
         self.foregroundAppHelper?.StartLoop()
     }
 
