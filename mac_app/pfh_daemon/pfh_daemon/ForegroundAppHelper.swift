@@ -39,7 +39,7 @@ class ForegroundAppHelper {
     }
     
     func StartLoop() {
-        let date = Date().addingTimeInterval(self._interval)
+        let date = Date()
         let timer = Timer(fireAt: date, interval: self._interval, target: self, selector: #selector(process), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
