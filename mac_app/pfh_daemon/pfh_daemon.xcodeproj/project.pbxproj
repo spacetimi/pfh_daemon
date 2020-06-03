@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		825C88F12486E1350013897A /* DumpFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C88F02486E1350013897A /* DumpFileHelper.swift */; };
+		826A8B4124880B1800FBA199 /* ForegroundAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A8B4024880B1800FBA199 /* ForegroundAppHelper.swift */; };
 		82BDCBD624804B2600172E05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BDCBD524804B2600172E05 /* AppDelegate.swift */; };
 		82BDCBD824804B2600172E05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BDCBD724804B2600172E05 /* ViewController.swift */; };
 		82BDCBDA24804B2600172E05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82BDCBD924804B2600172E05 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		825C88F02486E1350013897A /* DumpFileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumpFileHelper.swift; sourceTree = "<group>"; };
+		826A8B4024880B1800FBA199 /* ForegroundAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundAppHelper.swift; sourceTree = "<group>"; };
 		82BDCBD224804B2600172E05 /* pfh_daemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pfh_daemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82BDCBD524804B2600172E05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82BDCBD724804B2600172E05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				82BDCBDB24804B2600172E05 /* Main.storyboard */,
 				82BDCBDE24804B2600172E05 /* Info.plist */,
 				82BDCBDF24804B2600172E05 /* pfh_daemon.entitlements */,
+				825C88F02486E1350013897A /* DumpFileHelper.swift */,
+				826A8B4024880B1800FBA199 /* ForegroundAppHelper.swift */,
 			);
 			path = pfh_daemon;
 			sourceTree = "<group>";
@@ -133,8 +139,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826A8B4124880B1800FBA199 /* ForegroundAppHelper.swift in Sources */,
 				82BDCBD824804B2600172E05 /* ViewController.swift in Sources */,
 				82BDCBD624804B2600172E05 /* AppDelegate.swift in Sources */,
+				825C88F12486E1350013897A /* DumpFileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
