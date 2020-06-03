@@ -23,15 +23,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.menu = statusMenu
         
         self.dumpFileHelper = DumpFileHelper()
-        self.foregroundAppHelper = ForegroundAppHelper(dumpFileHelper: self.dumpFileHelper!, interval: 15)
+        self.foregroundAppHelper = ForegroundAppHelper(dumpFileHelper: self.dumpFileHelper!, interval: 5)
         self.foregroundAppHelper?.StartLoop()
     }
 
     @IBAction func onPauseClicked(_ sender: NSMenuItem) {
-        print("on pause clicked")
+        self.foregroundAppHelper?.Pause()
     }
         
     @IBAction func onResumeClicked(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.Resume()
     }
     
     @IBAction func onQuitClicked(_ sender: NSMenuItem) {
