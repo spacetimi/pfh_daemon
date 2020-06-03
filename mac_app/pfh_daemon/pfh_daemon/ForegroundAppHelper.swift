@@ -13,47 +13,14 @@ class ForegroundAppHelper {
     var _dumpFileHelper: DumpFileHelper
     var _isPaused: Bool
     var _interval: TimeInterval
+    var _appleScript: NSAppleScript
     
     init(dumpFileHelper: DumpFileHelper, interval: TimeInterval) {
         self._dumpFileHelper = dumpFileHelper
         self._isPaused = false
         self._interval = interval
-    }
-    
-    func StartLoop() {
-        let date = Date().addingTimeInterval(self._interval)
-        let timer = Timer(fireAt: date, interval: self._interval, target: self, selector: #selector(process), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
         
-    }
-    
-    func Pause() {
-        self._isPaused = true
-    }
-    
-    func Resume() {
-        self._isPaused = false
-    }
-    
-    /// Private ////////////////////////////////////////////////////////////////////
-
-    @objc func process() {
-        
-        if !self._isPaused &&
-           !self.isScreenLocked() {
-            
-            self.getForegroundAppDetails()
-        }
-    }
-    
-    func isScreenLocked() -> Bool {
-        let sessionDict = CGSessionCopyCurrentDictionary() as? [NSString: Any]
-        let locked = sessionDict?["CGSSessionScreenIsLocked"] ?? false
-        return locked as! Bool
-    }
-    
-    func getForegroundAppDetails() {
-       let source = """
+        let appleScriptSource = """
         tell application "System Events"
             set foreground_app to first application process whose frontmost is true
         end tell
@@ -68,15 +35,58 @@ class ForegroundAppHelper {
         end tell
         return ""
         """
+        self._appleScript = NSAppleScript(source: appleScriptSource)!
+    }
+    
+    func StartLoop() {
+        let date = Date().addingTimeInterval(self._interval)
+        let timer = Timer(fireAt: date, interval: self._interval, target: self, selector: #selector(process), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+    }
+    
+    func Pause() {
+        self._isPaused = true
+    }
+    
+    func Resume() {
+        self._isPaused = false
+    }
+    
+    /// Private ////////////////////////////////////////////////////////////////////
 
-        let script = NSAppleScript(source: source)!
+    @objc func process() {
+        
+        if !self._isPaused {
+            var logString = ""
+            if !self.isScreenLocked() {
+                logString = self.getForegroundAppDetails()
+            } else {
+                logString = "locked####nil\n"
+            }
+            
+            if logString.count != 0 {
+                let sinceEpoch = Int(Date().timeIntervalSince1970)
+                logString = String(sinceEpoch) + "####" + logString
+                self._dumpFileHelper.Dump(s: logString)
+            }
+        }
+    }
+    
+    func isScreenLocked() -> Bool {
+        let sessionDict = CGSessionCopyCurrentDictionary() as? [NSString: Any]
+        let locked = sessionDict?["CGSSessionScreenIsLocked"] ?? false
+        return locked as! Bool
+    }
+    
+    func getForegroundAppDetails() -> String {
         var error: NSDictionary? = nil
-        let scriptOutput = (script.executeAndReturnError(&error).stringValue ?? "") + "\n"
+        let scriptOutput = (self._appleScript.executeAndReturnError(&error).stringValue ?? "") + "\n"
 
         if error != nil {
             print(error ?? "error: nil")
+            return ""
         }
         
-        self._dumpFileHelper.Dump(s: scriptOutput)
+        return scriptOutput
     }
 }
