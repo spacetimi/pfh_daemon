@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem?.button?.title = "PFH"
+        statusItem?.button?.image = NSImage(named: "clock")
         statusItem?.menu = statusMenu
         
         self.dumpFileHelper = DumpFileHelper()
@@ -31,9 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Register for auto launch
         SMLoginItemSetEnabled(helperBundleName as CFString, true)
-        let foundHelper = NSWorkspace.shared.runningApplications.contains {
-            $0.bundleIdentifier == helperBundleName
-        }
     }
 
     @IBAction func onPauseClicked(_ sender: NSMenuItem) {

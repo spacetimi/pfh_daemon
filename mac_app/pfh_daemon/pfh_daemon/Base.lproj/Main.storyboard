@@ -680,8 +680,9 @@
                 </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <menu id="wwM-P3-aFk">
+                <menu title="PFH" id="wwM-P3-aFk">
                     <items>
+                        <menuItem isSeparatorItem="YES" id="Wkf-oZ-jRD"/>
                         <menuItem title="Pause" id="vAO-L4-s7y">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
