@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -14,6 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
     var dumpFileHelper: DumpFileHelper?
     var foregroundAppHelper: ForegroundAppHelper?
+    
+    let helperBundleName = "com.spacetimi.AutoLauncher"
     
     @IBOutlet var statusMenu: NSMenu!
     
@@ -23,8 +26,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.menu = statusMenu
         
         self.dumpFileHelper = DumpFileHelper()
-        self.foregroundAppHelper = ForegroundAppHelper(dumpFileHelper: self.dumpFileHelper!, interval: 5)
+        self.foregroundAppHelper = ForegroundAppHelper(dumpFileHelper: self.dumpFileHelper!, interval: 15)
         self.foregroundAppHelper?.StartLoop()
+        
+        // Register for auto launch
+        SMLoginItemSetEnabled(helperBundleName as CFString, true)
+        let foundHelper = NSWorkspace.shared.runningApplications.contains {
+            $0.bundleIdentifier == helperBundleName
+        }
     }
 
     @IBAction func onPauseClicked(_ sender: NSMenuItem) {
