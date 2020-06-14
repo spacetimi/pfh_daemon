@@ -5,7 +5,7 @@ data/*
 *.swp
 *.lock
 *~.nib
-build/
+[Bb]uild/
 *.pbxuser
 *.mode2v3
 *.perspectivev3
