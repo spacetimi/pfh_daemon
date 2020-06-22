@@ -15,14 +15,12 @@ class ForegroundAppHelper {
     var _interval: TimeInterval
     var _appleScript: NSAppleScript
     
-    var _temporaryTimer = Timer()
     var _temporaryForcedCategory: String
     
     init(dumpFileHelper: DumpFileHelper, interval: TimeInterval) {
         self._dumpFileHelper = dumpFileHelper
         self._isPaused = false
         self._interval = interval
-        self._temporaryTimer = Timer()
         self._temporaryForcedCategory = ""
         
         let appleScriptSource = """
@@ -57,18 +55,8 @@ class ForegroundAppHelper {
         self.resumeNormalOperations()
     }
 
-    func PauseFor(timeInterval: TimeInterval) {
-        _isPaused = true
-        
-        _temporaryTimer.invalidate()
-        _temporaryTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(resumeNormalOperations), userInfo: nil, repeats: false)
-    }
-    
-    func MarkAsStatusFor(status: String, timeInterval: TimeInterval) {
+    func MarkAsStatus(status: String) {
         _temporaryForcedCategory = status
-        
-        _temporaryTimer.invalidate()
-        _temporaryTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(resumeNormalOperations), userInfo: nil, repeats: false)
     }
     
     /// Private ////////////////////////////////////////////////////////////////////
