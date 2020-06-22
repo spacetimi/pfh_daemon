@@ -46,6 +46,54 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApplication.shared.terminate(self)
     }
     
+    @IBAction func onPauseFor15Minutes(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.PauseFor(timeInterval: 60 * 15)
+    }
+    
+    @IBAction func onPauseFor30Minutes(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.PauseFor(timeInterval: 60 * 30)
+    }
+    
+    @IBAction func onPauseFor1Hour(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.PauseFor(timeInterval: 60 * 60)
+    }
+    
+    @IBAction func onMarkProductiveFor15Minutes(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "productive", timeInterval: 60 * 15)
+    }
+    
+    @IBAction func onMarkProductiveFor30Minutes(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "productive", timeInterval: 60 * 30)
+    }
+    
+    @IBAction func onMarkProductiveFor1Hour(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "productive", timeInterval: 60 * 60)
+    }
+    
+    @IBAction func onMarkOperationalOverheadFor15Minutes(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "operational-overhead", timeInterval: 60 * 15)
+    }
+    
+    @IBAction func onMarkOperationalOverheadFor30Minutes(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "operational-overhead", timeInterval: 60 * 30)
+    }
+    
+    @IBAction func onMarkOperationalOverheadFor1Hour(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "operational-overhead", timeInterval: 60 * 60)
+    }
+    
+    @IBAction func onMarkUnproductiveFor15Minutes(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "unproductive", timeInterval: 60 * 15)
+    }
+    
+    @IBAction func onMarkUnproductiveFor30Minutes(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "unproductive", timeInterval: 60 * 30)
+    }
+    
+    @IBAction func onMarkUnproductiveFor1Hour(_ sender: NSMenuItem) {
+        self.foregroundAppHelper?.MarkAsStatusFor(status: "unproductive", timeInterval: 60 * 60)
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }

@@ -15,10 +15,15 @@ class ForegroundAppHelper {
     var _interval: TimeInterval
     var _appleScript: NSAppleScript
     
+    var _temporaryTimer = Timer()
+    var _temporaryForcedCategory: String
+    
     init(dumpFileHelper: DumpFileHelper, interval: TimeInterval) {
         self._dumpFileHelper = dumpFileHelper
         self._isPaused = false
         self._interval = interval
+        self._temporaryTimer = Timer()
+        self._temporaryForcedCategory = ""
         
         let appleScriptSource = """
         tell application "System Events"
@@ -49,7 +54,21 @@ class ForegroundAppHelper {
     }
     
     func Resume() {
-        self._isPaused = false
+        self.resumeNormalOperations()
+    }
+
+    func PauseFor(timeInterval: TimeInterval) {
+        _isPaused = true
+        
+        _temporaryTimer.invalidate()
+        _temporaryTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(resumeNormalOperations), userInfo: nil, repeats: false)
+    }
+    
+    func MarkAsStatusFor(status: String, timeInterval: TimeInterval) {
+        _temporaryForcedCategory = status
+        
+        _temporaryTimer.invalidate()
+        _temporaryTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(resumeNormalOperations), userInfo: nil, repeats: false)
     }
     
     /// Private ////////////////////////////////////////////////////////////////////
@@ -61,13 +80,13 @@ class ForegroundAppHelper {
             if !self.isScreenLocked() {
                 logString = self.getForegroundAppDetails()
             } else {
-                logString = "locked####nil\n"
+                logString = "locked####nil"
             }
             
             if logString.count != 0 {
                 let sinceEpoch = Int(Date().timeIntervalSince1970)
-                logString = String(sinceEpoch) + "####" + logString
-                self._dumpFileHelper.Dump(s: logString)
+                logString = String(sinceEpoch) + "####" + logString + "####" + _temporaryForcedCategory
+                self._dumpFileHelper.Dump(s: logString + "\n")
             }
         }
     }
@@ -80,7 +99,7 @@ class ForegroundAppHelper {
     
     func getForegroundAppDetails() -> String {
         var error: NSDictionary? = nil
-        let scriptOutput = (self._appleScript.executeAndReturnError(&error).stringValue ?? "") + "\n"
+        let scriptOutput = (self._appleScript.executeAndReturnError(&error).stringValue ?? "")
 
         if error != nil {
             print(error ?? "error: nil")
@@ -88,5 +107,10 @@ class ForegroundAppHelper {
         }
         
         return scriptOutput
+    }
+    
+    @objc func resumeNormalOperations() {
+        _isPaused = false
+        _temporaryForcedCategory = ""
     }
 }

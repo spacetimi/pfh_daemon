@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
     </dependencies>
     <scenes>
@@ -694,6 +695,113 @@
                             <connections>
                                 <action selector="onResumeClicked:" target="Voe-Tx-rLC" id="scB-xA-6dW"/>
                             </connections>
+                        </menuItem>
+                        <menuItem title="Mark As" id="Zrw-qQ-yLq">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <menu key="submenu" title="Mark As" id="5cl-Ln-rLJ">
+                                <items>
+                                    <menuItem title="Paused For" id="9m9-Oe-u0d">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menu key="submenu" title="Paused For" id="agj-AZ-vi5">
+                                            <items>
+                                                <menuItem title="15 minutes" id="bh7-ft-sDq">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onPauseFor15Minutes:" target="Voe-Tx-rLC" id="1mv-gd-fFz"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="30 minutes" id="fUJ-o6-5Aj">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onPauseFor30Minutes:" target="Voe-Tx-rLC" id="sUH-S1-FSQ"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="1 hour" id="YKR-dz-Nrn">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onPauseFor1Hour:" target="Voe-Tx-rLC" id="aei-ZP-NjD"/>
+                                                    </connections>
+                                                </menuItem>
+                                            </items>
+                                        </menu>
+                                    </menuItem>
+                                    <menuItem title="Productive For" id="DFE-Jn-r45">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menu key="submenu" title="Productive For" id="vte-cf-QNx">
+                                            <items>
+                                                <menuItem title="15 minutes" id="vfI-w0-rJQ">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkProductiveFor15Minutes:" target="Voe-Tx-rLC" id="rw3-Xl-si4"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="30 minutes" id="aR7-FW-Efu">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkProductiveFor30Minutes:" target="Voe-Tx-rLC" id="tOT-Ey-Gwo"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="1 hour" id="6Zd-ja-Fh3">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkProductiveFor1Hour:" target="Voe-Tx-rLC" id="kNH-oq-Y1T"/>
+                                                    </connections>
+                                                </menuItem>
+                                            </items>
+                                        </menu>
+                                    </menuItem>
+                                    <menuItem title="OperationalOverhead For" id="z64-wN-r4J">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menu key="submenu" title="OperationalOverhead For" id="2UI-TA-Mof">
+                                            <items>
+                                                <menuItem title="15 minutes" id="vE9-WG-3h4">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkOperationalOverheadFor15Minutes:" target="Voe-Tx-rLC" id="YE3-Hc-Oha"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="30 minutes" id="WBy-U2-ha4">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkOperationalOverheadFor30Minutes:" target="Voe-Tx-rLC" id="TKL-g2-TS9"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="1 hour" id="EIl-Ap-5Q9">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkOperationalOverheadFor1Hour:" target="Voe-Tx-rLC" id="MBU-pH-t9R"/>
+                                                    </connections>
+                                                </menuItem>
+                                            </items>
+                                        </menu>
+                                    </menuItem>
+                                    <menuItem title="Unproductive For" id="lgb-Ql-YZ2">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menu key="submenu" title="Unproductive For" id="DY1-fp-Y7p">
+                                            <items>
+                                                <menuItem title="15 minutes" id="Wuh-62-wJa">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkUnproductiveFor15Minutes:" target="Voe-Tx-rLC" id="MvL-ZZ-2Sj"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="30 minutes" id="zln-ah-E6O">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkUnproductiveFor30Minutes:" target="Voe-Tx-rLC" id="tja-xr-rg8"/>
+                                                    </connections>
+                                                </menuItem>
+                                                <menuItem title="1 hour" id="vvE-vB-KFY">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <connections>
+                                                        <action selector="onMarkUnproductiveFor1Hour:" target="Voe-Tx-rLC" id="M0y-cP-ciW"/>
+                                                    </connections>
+                                                </menuItem>
+                                            </items>
+                                        </menu>
+                                    </menuItem>
+                                </items>
+                            </menu>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="tAb-Sn-dcE"/>
                         <menuItem title="Quit" id="Pjn-ga-IbO">
