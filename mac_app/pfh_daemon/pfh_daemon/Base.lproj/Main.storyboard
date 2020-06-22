@@ -690,41 +690,35 @@
                                 <action selector="onPauseClicked:" target="Voe-Tx-rLC" id="e5H-kJ-WBP"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Resume" id="diG-UD-1Zc">
+                        <menuItem title="Pause For" id="uDd-uE-PMl">
                             <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="onResumeClicked:" target="Voe-Tx-rLC" id="scB-xA-6dW"/>
-                            </connections>
+                            <menu key="submenu" title="Pause For" id="cke-Y5-zgn">
+                                <items>
+                                    <menuItem title="15 minutes" id="Ajl-yR-WeM">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="onPauseFor15Minutes:" target="Voe-Tx-rLC" id="zmT-mU-9fv"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="30 minutes" id="Y3K-hO-F2M">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="onPauseFor30Minutes:" target="Voe-Tx-rLC" id="i6m-nW-eVr"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="1 hour" id="ATy-p2-sJM">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="onPauseFor1Hour:" target="Voe-Tx-rLC" id="Unr-eY-Iyy"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
                         </menuItem>
                         <menuItem title="Mark As" id="Zrw-qQ-yLq">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <menu key="submenu" title="Mark As" id="5cl-Ln-rLJ">
                                 <items>
-                                    <menuItem title="Paused For" id="9m9-Oe-u0d">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <menu key="submenu" title="Paused For" id="agj-AZ-vi5">
-                                            <items>
-                                                <menuItem title="15 minutes" id="bh7-ft-sDq">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                    <connections>
-                                                        <action selector="onPauseFor15Minutes:" target="Voe-Tx-rLC" id="1mv-gd-fFz"/>
-                                                    </connections>
-                                                </menuItem>
-                                                <menuItem title="30 minutes" id="fUJ-o6-5Aj">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                    <connections>
-                                                        <action selector="onPauseFor30Minutes:" target="Voe-Tx-rLC" id="sUH-S1-FSQ"/>
-                                                    </connections>
-                                                </menuItem>
-                                                <menuItem title="1 hour" id="YKR-dz-Nrn">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                    <connections>
-                                                        <action selector="onPauseFor1Hour:" target="Voe-Tx-rLC" id="aei-ZP-NjD"/>
-                                                    </connections>
-                                                </menuItem>
-                                            </items>
-                                        </menu>
-                                    </menuItem>
                                     <menuItem title="Productive For" id="DFE-Jn-r45">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                         <menu key="submenu" title="Productive For" id="vte-cf-QNx">
@@ -802,6 +796,12 @@
                                     </menuItem>
                                 </items>
                             </menu>
+                        </menuItem>
+                        <menuItem title="Resume Normal Operations" id="diG-UD-1Zc">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="onResumeClicked:" target="Voe-Tx-rLC" id="scB-xA-6dW"/>
+                            </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="tAb-Sn-dcE"/>
                         <menuItem title="Quit" id="Pjn-ga-IbO">
