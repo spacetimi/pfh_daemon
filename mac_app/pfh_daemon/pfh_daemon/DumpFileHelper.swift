@@ -31,7 +31,7 @@ class DumpFileHelper {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dumpFileName = dateFormatter.string(from: date) + ".dat"
+        let dumpFileName = "day-" + dateFormatter.string(from: date) + ".dat"
         let dumpFileUrl = self._dumpFileDirectory!.appendingPathComponent(dumpFileName)
 
         return dumpFileUrl
