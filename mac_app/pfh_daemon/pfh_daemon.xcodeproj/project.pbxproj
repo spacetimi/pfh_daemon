@@ -425,6 +425,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spacetimi.pfh-daemon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -446,6 +447,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spacetimi.pfh-daemon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
