@@ -1,8 +1,2 @@
-# Run
-./pfh_run.sh &
-
-# Output
-data/raw.dat
-
-# Required Installs
-pip install pyobjc-framework-Quartz
+See:
+https://sites.google.com/view/about-pfh/home
