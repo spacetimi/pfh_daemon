@@ -110,7 +110,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.button?.image = NSImage(named: "clock-forced")
         
         _temporaryTimer.invalidate()
-        _temporaryTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(resumeNormalOperations), userInfo: nil, repeats: false)
+        _temporaryTimer = Timer.scheduledTimer(timeInterval: 60 * 30, target: self, selector: #selector(resumeNormalOperations), userInfo: nil, repeats: false)
     }
     
     @IBAction func onMarkOperationalOverheadFor1Hour(_ sender: NSMenuItem) {
